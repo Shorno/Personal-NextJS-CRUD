@@ -1,36 +1,31 @@
 import React from "react";
-import {
-    Navbar,
-    NavbarContent,
-    NavbarItem,
-    Avatar,
-} from "@nextui-org/react";
-import Link from 'next/link';
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Button} from "@nextui-org/react";
+import {HiHome, HiUserGroup} from "react-icons/hi";
+import Link from "next/link";
 
 
-export default function MyNavbar() {
+export default function App() {
     return (
-        <Navbar>
-            <NavbarContent className=" gap-20" justify="center">
+        <Navbar className={"bg-slate-300 flex flex-col rounded-b-3xl"}>
+            <NavbarBrand>
+                <Link href={"/"}>
+                    <HiHome className={"h-12 w-12"}></HiHome>
+                </Link>
+            </NavbarBrand>
+            <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 <NavbarItem isActive>
-                    <Link href="/" aria-current="page" color="secondary">
-                        Dashboard
+                    <Link href={"/clients"}>
+                        <HiUserGroup className={"h-12 w-12"}> XXX</HiUserGroup>
                     </Link>
                 </NavbarItem>
             </NavbarContent>
-
             <NavbarContent justify="end">
+                <NavbarItem className="hidden lg:flex">
+                </NavbarItem>
                 <NavbarItem>
-                    <Link href="/client-list" aria-current="page" color="secondary">
-                        Client List
-                    </Link>
+
                 </NavbarItem>
             </NavbarContent>
-
-            <NavbarContent as="div" justify="end">
-                <Avatar/>
-            </NavbarContent>
-
         </Navbar>
     );
 }

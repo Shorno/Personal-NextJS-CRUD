@@ -10,6 +10,7 @@ import {
     Input,
 } from "@nextui-org/react";
 import {useRouter} from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function ClientForm({setClients, clients}) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -38,7 +39,8 @@ export default function ClientForm({setClients, clients}) {
                 })
             });
             if (res.ok) {
-                router.push("/client-list")
+                toast.success("New client created successfully")
+                router.push("/")
             } else {
                 throw new Error("Failed to create new Client")
             }
